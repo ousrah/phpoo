@@ -4,3 +4,6 @@
 /clientManagerV1/.env
 /clientManagerV2/.env
 /clientManagerV3/.env
+/clientManagerV1/composer.lock
+/clientManagerV2/composer.lock
+/clientManagerV3/composer.lock
