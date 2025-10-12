@@ -1,0 +1,13 @@
+# Active la réécriture des URL
+Options -MultiViews
+RewriteEngine On
+
+# Définit le dossier racine
+RewriteBase /phpoo/clientManagerv3/public/
+
+# Si le fichier ou le dossier existe, on le laisse passer
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Sinon, on redirige tout vers index.php
+RewriteRule ^ index.php [QSA,L]
