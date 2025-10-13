@@ -1,3 +1,12 @@
+
+
+-- Crée la base de données si elle n'existe pas
+CREATE DATABASE IF NOT EXISTS gestionClients CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Utilise la base de données
+USE gestionClients;
+
+
 CREATE TABLE clients (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nom VARCHAR(100) NOT NULL,

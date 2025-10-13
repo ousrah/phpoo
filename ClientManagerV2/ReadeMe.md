@@ -2,7 +2,7 @@
 
 Ce document décrit la version la plus fondamentale du projet "Client Manager". L'objectif de cette version initiale est de mettre en place une **structure d'application PHP moderne et propre, sans l'aide d'un framework**, pour servir de fondation solide à l'apprentissage de concepts plus avancés.
 
-L'application, dans cet état, permet uniquement d'afficher une liste de clients et d'en ajouter de nouveaux via un formulaire simple.
+L'application, dans cet état, permet uniquement d'afficher une liste de clients et d'en ajouter de nouveaux via un formulaire simple. Nous avons introduits une gestion de routes plus solide.
 
 ## 🎓 Concepts Fondamentaux Abordés
 
@@ -16,10 +16,7 @@ Même sans être un framework MVC complet, le code est organisé pour que chaque
 -   **Vue (`public/list.php`)** : Son seul rôle est d'afficher le HTML et les données fournies par le contrôleur.
 -   **Routeur (`routes/web.php`)** : Il mappe les URLs aux bonnes méthodes des contrôleurs.
 
-### 2. Encapsulation
-C'est le seul pilier de la POO activement utilisé à ce stade.
--   Dans la classe `App\Entity\Client`, les propriétés (`$nom`, `$email`, etc.) sont déclarées en `private`.
--   L'accès à ces propriétés depuis l'extérieur de la classe est impossible directement. On doit passer par les méthodes publiques `getNom()` et `setNom()`, ce qui nous donne le contrôle sur nos données.
+
 
 ## 🏗️ Architecture du Projet (Version de Base)
 

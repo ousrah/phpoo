@@ -1,16 +1,17 @@
+-- Base de données : gestionClients
 -- Crée la base de données si elle n'existe pas
 CREATE DATABASE IF NOT EXISTS gestionClients CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Utilise la base de données
 USE gestionClients;
 
+-- Table : clients
 
 CREATE TABLE clients (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nom VARCHAR(100) NOT NULL,
-  email VARCHAR(150) UNIQUE NOT NULL,
-  telephone VARCHAR(20),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    telephone VARCHAR(20) NULL
 );
 
 INSERT INTO clients (nom, email, telephone) VALUES
