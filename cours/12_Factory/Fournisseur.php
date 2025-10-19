@@ -1,17 +1,17 @@
 <?php
 
-require_once 'Personne.php';
+require_once 'Person.php';
 require_once 'Adressable.php';
 
-class Fournisseur extends Personne {
+class Fournisseur extends Person {
 
     // On réutilise EXACTEMENT le même code d'adresse ici.
     use Adressable;
 
     public $societe;
 
-    public function __construct($nom, $prenom, $dateDeNaissance, $societe) {
-        parent::__construct($nom, $prenom, $dateDeNaissance);
+    public function __construct($nom, $prenom,  $societe) {
+        parent::__construct($nom, $prenom);
         $this->societe = $societe;
     }
 

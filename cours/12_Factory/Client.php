@@ -1,12 +1,12 @@
 <?php
 
-require_once 'Personne.php';
+require_once 'Person.php';
 require_once 'Adressable.php';
 /**
  * La classe Client hérite de la classe Personne.
  * Elle a donc accès à toutes les propriétés et méthodes publiques de Personne.
  */
-class Client extends Personne {
+class Client extends Person {
 
        // On "injecte" les propriétés (rue, ville, codePostal) et la méthode getAdresseComplete()
 
@@ -17,9 +17,9 @@ class Client extends Personne {
      * Le constructeur de la classe enfant.
      * Il doit appeler le constructeur de la classe parent avec parent::__construct().
      */
-    public function __construct($nom, $prenom, $dateDeNaissance, $email) {
+    public function __construct($nom, $prenom, $email) {
         // Appel du constructeur de la classe parente (Personne)
-        parent::__construct($nom, $prenom, $dateDeNaissance);
+        parent::__construct($nom, $prenom);
         $this->setEmail($email);
     }
 

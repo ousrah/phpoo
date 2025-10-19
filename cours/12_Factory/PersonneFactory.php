@@ -2,7 +2,7 @@
 // Fichier : PersonneFactory.php
 require_once 'Client.php'; 
 require_once 'Fournisseur.php'; 
-
+require_once 'Person.php'; 
 class PersonneFactory {
     /**
      * Crée et retourne une instance d'un enfant de Personne en fonction du type fourni.
@@ -13,12 +13,12 @@ class PersonneFactory {
      * @param string $nom Le nom de la personne.
      * @param string $prenom Le prénom de la personne.
      * @param string $detail L'information spécifique.
-     * @param string $societe L'information spécifique (societe).
+
 
     * @return Personne L'objet créé.
      * @throws InvalidArgumentException Si le type est inconnu.
      */
-    public static function creerPersonne(string $type, string $nom, string $prenom, string $detail): Personne {
+    public static function creerPersonne(string $type, string $nom, string $prenom, string $detail): Person {
         switch (strtolower($type)) {
             case 'client':
                 return new Client($nom, $prenom, $detail);

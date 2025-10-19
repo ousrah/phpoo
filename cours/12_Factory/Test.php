@@ -1,7 +1,7 @@
 <?php
 
  require_once 'PersonneFactory.php'; 
-
+ require_once 'Person.php'; 
 
 echo "Traitement des données via la Factory...<br>";
 
@@ -24,7 +24,9 @@ echo "<hr>Affichage des profils des personnes créées :<br>";
 
 // Grâce au polymorphisme, on peut appeler getProfilDetails() sur n'importe quel objet
 // créé par la fabrique, car on sait qu'ils héritent tous de Personne.
-foreach ($personnes as $p) {
+/** @var Person $p */
+foreach ($personnes as  $p ) {
+
     echo $p->getProfilDetails() . "<br>";
 }
 
