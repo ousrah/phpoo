@@ -7,12 +7,12 @@ abstract  class Personne {
      */
     private $nom;
     private $prenom;
-    private $dateDeNaissance;
 
-    public function __construct($nom, $prenom, $dateDeNaissance) {
+
+    public function __construct($nom, $prenom, ) {
         $this->setNom($nom); // On utilise le setter dès le constructeur
         $this->setPrenom($prenom);
-        $this->dateDeNaissance = $dateDeNaissance;
+
     }
 
     // GETTERS (Accesseurs) : Méthodes publiques pour LIRE les propriétés privées
@@ -25,9 +25,7 @@ abstract  class Personne {
         return $this->prenom;
     }
 
-    public function getDateDeNaissance() {
-        return $this->dateDeNaissance;
-    }
+
 
     // SETTERS (Mutateurs) : Méthodes publiques pour MODIFIER les propriétés privées
 
@@ -51,16 +49,8 @@ abstract  class Personne {
     public function getNomComplet() {
         return $this->prenom . ' ' . $this->nom;
     }
-    
-    public function getAge() {
-        $dateNaissance = new DateTime($this->dateDeNaissance);
-        $dateActuelle = new DateTime();
-        $difference = $dateActuelle->diff($dateNaissance);
-        return $difference->y;
-    }
-  
-    abstract public function getProfilDetails();
 
+    abstract public function getProfilDetails();
 }
 
 ?>
