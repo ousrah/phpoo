@@ -10,13 +10,11 @@ class ClientController
 {
     private ClientRepository $repo;
 
-    public function __construct()
-    {
+    public function __construct()    {
         $this->repo = new ClientRepository();
     }
 
-    public function index(): void
-    {
+    public function index(): void    {
         try {
             $clients = $this->repo->all();
         } catch (DatabaseException $e) {
@@ -27,8 +25,7 @@ class ClientController
         include __DIR__ . '/../../public/list.php';
     }
 
-    public function store(): void
-    {
+    PUBLIC function store(): void    {
         try {
             $client = new Client(
                 null,
