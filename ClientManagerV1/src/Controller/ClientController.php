@@ -28,7 +28,7 @@ class ClientController
     public function store(): void
     {
         try {
-            $client = new Client(
+            $client = new Client(null,
                 trim($_POST['nom']),
                 trim($_POST['email']),
                 $_POST['telephone'] ?? null

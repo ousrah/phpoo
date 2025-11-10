@@ -14,9 +14,9 @@ class Client
     private static PDO $pdo;
 
 
-    public function __construct(string $nom, string $email, ?string $telephone = null)
+    public function __construct(?int $id, string $nom, string $email, ?string $telephone = null)
     {
-        
+        $this->id = $id;
         $this->nom = $nom;
         $this->email = $email;
         $this->telephone = $telephone;
@@ -37,14 +37,21 @@ class Client
     try {
         $pdo = Connection::get();
         $stmt = $pdo->query("SELECT * FROM clients ORDER BY id DESC");
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+     
+     //   $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $clients = [];
-        foreach ($rows as $row) {
-            $client = new Client($row['nom'], $row['email'], $row['telephone'] ?? null);
-            $client->id = (int) $row['id'];
-            $clients[] = $client;
-        }
+     //   $clients = [];
+        // foreach ($rows as $row) {
+        //     $client = new Client($row['nom'], $row['email'], $row['telephone'] ?? null);
+        //     $client->id = (int) $row['id'];
+        //     $clients[] = $client;
+        // }
+
+   
+        $clients = $stmt->fetchAll(PDO::FETCH_FUNC, function($id, $nom, $email, $telephone) {
+            return new Client($id, $nom, $email, $telephone);
+        });
+
 
         return $clients;
     } catch (PDOException $e) {
