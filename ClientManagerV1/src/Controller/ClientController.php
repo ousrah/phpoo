@@ -2,22 +2,21 @@
 namespace App\Controller;
 
 use App\Entity\Client;
-use App\Repository\ClientRepository;
 use App\Exceptions\DatabaseException;
 
 class ClientController
 {
-    private ClientRepository $repo;
+
 
     public function __construct()
     {
-        $this->repo = new ClientRepository();
+       
     }
 
     public function index(): void
     {
         try {
-            $clients = $this->repo->all();
+            $clients = Client::all();
         } catch (DatabaseException $e) {
             $error = $e->getMessage();
             $clients = [];
@@ -34,7 +33,7 @@ class ClientController
                 trim($_POST['email']),
                 $_POST['telephone'] ?? null
             );
-            $this->repo->save($client);
+            $client->save();
             header('Location: /phpoo/clientManagerv1/public');
             exit;
         } catch (DatabaseException $e) {
