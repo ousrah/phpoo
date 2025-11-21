@@ -31,7 +31,8 @@ class PersonneController extends BaseController
         // Utilisation de la méthode render héritée de BaseController
         $this->render('personnes/list', [
             'personnes' => $personnes,
-            'error' => $error ?? null
+            'error' => $error ?? null,
+            'title' => "Titre de test"
         ]);
     }
 }
